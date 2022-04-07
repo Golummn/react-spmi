@@ -1,57 +1,96 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "./../../assets/fksp.png";
+import logo from "./../../assets/fksp-1.png";
 import "./../../App.css";
 
 const Wrapper = styled.div`
 	display: flex;
 	height: 100vh;
 	width: 100%;
-	background-color: white;
+	/* background-image: linear-gradient(to right top, #009457, #1aa04e, #32ab41, #4ab62f, #63c00b); */
+	background-color: #009457;
 `;
 
-const LayoutFirst = styled.div`
+const Container = styled.div`
+	width: 400px;
+	margin: auto;
+	height: 400px;
+	border-radius: 1em;
+	box-shadow: 0px 2px 39px -10px rgba(0, 0, 0, 0.59);
+	-webkit-box-shadow: 0px 2px 39px -10px rgba(0, 0, 0, 0.59);
+	-moz-box-shadow: 0px 2px 39px -10px rgba(0, 0, 0, 0.59);
+	background-color: #f7f7f7;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
-	background-color: #009457;
-	width: 50%;
+	padding: 1rem 1rem;
 `;
+
 const Logo = styled.img`
-	width: 10rem;
-	height: 10rem;
+	width: 5rem;
+	height: 5rem;
 `;
 
-const Title = styled.h1`
-	margin-top: 1rem;
-	font-size: 3rem;
-	color: #fff;
+const TitleLogin = styled.div`
+	font-size: 1.5rem;
+	color: #131212;
+	padding: 1em;
+	font-weight: 500;
+`;
+
+const Input = styled.input`
+	padding: 0.8em;
+	margin: 0.5rem;
+	width: 70%;
+	font-size: 0.9em;
+	background-color: #fafafa;
+	border: 1px solid #c5c5c5;
+	border-radius: 5px;
+	&:focus {
+		outline: none !important;
+		border: 1px solid #009457;
+		box-shadow: 0 0 10px #719ece;
+	}
+`;
+
+const Button = styled.button`
+	/* background-image: linear-gradient(to right top, #009457, #1aa04e, #32ab41, #4ab62f, #63c00b); */
+	background-color: #009457;
+	border: none;
+	color: #ebebeb;
+	padding: 0.8em;
+	margin: 0.5rem;
+	width: 75%;
+	font-size: 1em;
 	font-weight: 700;
-	font-style: italic;
+	border-radius: 5px;
+	cursor: pointer;
+	&:hover {
+		background-color: #017947;
+	}
 `;
-const Subtitle = styled.h2`
-	margin-top: 0.5rem;
-	font-size: 2rem;
-	color: #fff;
-	font-weight: 600;
-`;
-const Text = styled.div``;
 
-const LayoutForm = styled.div`
-	background-color: white;
+const Subtext = styled.a`
+	font-size: 0.8em;
+	margin-top: 0.3em;
+	color: #bdb9b9;
+	cursor: pointer;
+	&:hover {
+		color: #949191;
+	}
 `;
 
 const Login = () => {
 	return (
 		<Wrapper>
-			<LayoutFirst>
+			<Container>
 				<Logo src={logo} />
-				<Title>E-SPMI</Title>
-				<Subtitle>FKSP UNSIQ</Subtitle>
-				<Text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero ea, corrupti, aut laboriosam voluptates quod assumenda mollitia consequatur at beatae velit cupiditate laborum culpa repellat quis. Vero at tenetur soluta.</Text>
-			</LayoutFirst>
-			<LayoutForm>asdas</LayoutForm>
+				<TitleLogin>Login E-SPMI</TitleLogin>
+				<Input type="text" placeholder="Email or Username"></Input>
+				<Input type="password" placeholder="Password"></Input>
+				<Button>Login</Button>
+				<Subtext>Forgot Password?</Subtext>
+			</Container>
 		</Wrapper>
 	);
 };
