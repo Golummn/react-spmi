@@ -89,6 +89,11 @@ video {
 	font-family: "Poppins", sans-serif;
 	box-sizing: border-box;
 }
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -121,4 +126,53 @@ q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+/* Styling */
+
+.hide {
+	display: none;
+}
+
+.link {
+	font-size: 14px;
+	cursor: pointer;
+	display: flex;
+	color: white;
+	gap: 10px;
+	text-decoration: none;
+	padding: 5px 10px;
+	transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+.link:hover {
+	background: #006e41;
+	transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+.active {
+	background: #006e41;
+}
+.link_text {
+	white-space: nowrap;
+	font-size: 14px;
+}
+
+.menu {
+	cursor: pointer;
+	display: flex;
+	color: white;
+	padding: 5px 10px;
+	border-right: 4px solid transparent;
+	transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+	justify-content: space-between;
+}
+.menu_item {
+	display: flex;
+	gap: 10px;
+}
+.menu_container {
+	display: flex;
+	flex-direction: column;
+}
+.menu_container .link {
+	padding-left: 20px;
 }
