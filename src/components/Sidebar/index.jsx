@@ -1,4 +1,4 @@
-import {NavLink} from "react-router-dom";
+import {NavLink, Outlet} from "react-router-dom";
 import {FaBars, FaHome, FaLock, FaMoneyBill, FaUser} from "react-icons/fa";
 import {BiCog} from "react-icons/bi";
 import {AiFillHeart, AiTwotoneFileExclamation} from "react-icons/ai";
@@ -11,12 +11,12 @@ import styled from "styled-components";
 
 const routes = [
 	{
-		path: "/",
+		path: "",
 		name: "Beranda",
 		icon: <FaHome />,
 	},
 	{
-		path: "/file-manager",
+		path: "file-manager",
 		name: "Penjaminan Mutu",
 		icon: <AiTwotoneFileExclamation />,
 		subRoutes: [
@@ -48,7 +48,7 @@ const routes = [
 		icon: <BiCog />,
 	},
 	{
-		path: "/saved",
+		path: "manajemen-pengguna",
 		name: "Manajemen Pengguna",
 		icon: <AiFillHeart />,
 	},
@@ -63,14 +63,14 @@ const SideBar = ({children}) => {
 			width: 0,
 			opacity: 0,
 			transition: {
-				duration: 0.5,
+				duration: 0.2,
 			},
 		},
 		show: {
 			opacity: 1,
 			width: "auto",
 			transition: {
-				duration: 0.5,
+				duration: 0.2,
 			},
 		},
 	};
@@ -83,6 +83,9 @@ const SideBar = ({children}) => {
 		color: white;
 		height: 100vh;
 		overflow-y: auto;
+		@media screen and (max-width: 768px) {
+			position: absolute;
+		}
 	`;
 	const Logo = styled(motion.h1)`
 		font-weight: 600;
@@ -94,11 +97,13 @@ const SideBar = ({children}) => {
 	`;
 	// const Link = styled.div``;
 
-	const Icon = styled.div``;
+	const Icon = styled.div`
+		width: 20px;
+	`;
 
 	const LinkText = styled(motion.div)`
 		white-space: nowrap;
-		font-size: 14px;
+		font-size: 15px;
 	`;
 
 	const TopSection = styled.div`
@@ -225,7 +230,9 @@ const SideBar = ({children}) => {
 						})}
 					</Routes>
 				</Sidebar>
-				<Main>{children}</Main>
+				<Main>
+					<Outlet />
+				</Main>
 			</MainContainer>
 		</>
 	);

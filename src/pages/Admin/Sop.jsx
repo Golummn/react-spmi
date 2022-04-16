@@ -1,15 +1,6 @@
 import React from "react";
-import styled from "styled-components";
+import {Container, Title} from "./StyledAdmin";
 
-const Container = styled.div`
-	margin-top: 1rem;
-	max-height: 95vh;
-	width: 80vw;
-`;
-const Title = styled.h1`
-	font-weight: 500;
-	font-size: 2rem;
-`;
 const Sop = () => {
 	return (
 		<>
