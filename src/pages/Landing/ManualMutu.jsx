@@ -9,7 +9,7 @@ const Title = styled.h2`
 	margin: 2rem auto;
 `;
 
-const ManualMutu = () => {
+const TableManualMutu = () => {
 	return (
 		<>
 			<Title>Dokumen Manual Mutu</Title>
@@ -41,4 +41,4 @@ const ManualMutu = () => {
 	);
 };
 
-export default ManualMutu;
+export default TableManualMutu;

@@ -36,10 +36,16 @@ const Title = styled.h1`
 	font-weight: 700;
 	font-size: 1.6rem;
 	bottom: 0;
+	@media screen and (max-width: 768px) {
+		font-size: 1.2rem;
+	}
 `;
 const SubTitle = styled.span`
 	font-size: 0.8rem;
 	font-weight: 500;
+	@media screen and (max-width: 768px) {
+		font-size: 0.6rem;
+	}
 `;
 
 const NavLeft = styled.div`

@@ -106,6 +106,7 @@ const Dokumen = () => {
 					</Icon>
 					<CardTitle>Instruksi Kerja</CardTitle>
 				</Card>
+
 				<Card>
 					<Icon>
 						<FiArchive size={50} />

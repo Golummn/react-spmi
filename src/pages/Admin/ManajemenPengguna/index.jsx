@@ -1,21 +1,36 @@
 import React from "react";
-import styled from "styled-components";
-
-const Container = styled.div`
-	margin-top: 1rem;
-	max-height: 95vh;
-	width: 80vw;
-`;
-const Title = styled.h1`
-	font-weight: 500;
-	font-size: 2rem;
-`;
+import {Container, Title, Table, Tambah, WrapperTable} from "./../StyledAdmin";
 
 const ManejemenPengguna = () => {
 	return (
 		<>
 			<Container>
 				<Title>Manajemen Pengguna</Title>
+				<Tambah>Tambah</Tambah>
+				<WrapperTable>
+					<Table>
+						<thead>
+							<tr>
+								<th>No</th>
+								<th>Nama</th>
+								<th>No Handphone</th>
+								<th>Email</th>
+								<th>Prodi</th>
+								<th>Aksi</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>content</td>
+								<td>content</td>
+								<td>content</td>
+								<td>content</td>
+								<td>content</td>
+							</tr>
+						</tbody>
+					</Table>
+				</WrapperTable>
 			</Container>
 		</>
 	);

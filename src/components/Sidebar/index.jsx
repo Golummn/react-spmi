@@ -11,7 +11,7 @@ import styled from "styled-components";
 
 const routes = [
 	{
-		path: "",
+		path: "beranda",
 		name: "Beranda",
 		icon: <FaHome />,
 	},
@@ -38,19 +38,19 @@ const routes = [
 		],
 	},
 	{
-		path: "/order",
+		path: "penelitian",
 		name: "Penelitian",
 		icon: <BsCartCheck />,
 	},
 	{
-		path: "/settings",
+		path: "pengabdian",
 		name: "Pengabdian",
 		icon: <BiCog />,
 	},
 	{
 		path: "manajemen-pengguna",
 		name: "Manajemen Pengguna",
-		icon: <AiFillHeart />,
+		icon: <FaUser />,
 	},
 ];
 
@@ -63,14 +63,14 @@ const SideBar = ({children}) => {
 			width: 0,
 			opacity: 0,
 			transition: {
-				duration: 0.2,
+				duration: 0.1,
 			},
 		},
 		show: {
 			opacity: 1,
 			width: "auto",
 			transition: {
-				duration: 0.2,
+				duration: 0.1,
 			},
 		},
 	};
@@ -83,6 +83,7 @@ const SideBar = ({children}) => {
 		color: white;
 		height: 100vh;
 		overflow-y: auto;
+		z-index: 10;
 		@media screen and (max-width: 768px) {
 			position: absolute;
 		}
@@ -114,7 +115,12 @@ const SideBar = ({children}) => {
 	`;
 
 	const Main = styled.main`
-		padding: 10px;
+		padding: 30px;
+		width: 100%;
+		@media screen and (max-width: 768px) {
+			margin-left: 2rem;
+			overflow-x: hidden;
+		}
 	`;
 	const Bars = styled.div`
 		width: 30px;
@@ -186,9 +192,9 @@ const SideBar = ({children}) => {
 			<MainContainer>
 				<Sidebar
 					animate={{
-						width: isOpen ? "220px" : "50px",
+						width: isOpen ? "300px" : "40px",
 						transition: {
-							duration: 0.2,
+							duration: 0.1,
 							type: "spring",
 							damping: 10,
 						},
