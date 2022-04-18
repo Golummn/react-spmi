@@ -82,6 +82,7 @@ const SideBar = ({children}) => {
 		background: #00824c;
 		color: white;
 		height: 100vh;
+		position: fixed;
 		overflow-y: auto;
 		z-index: 10;
 		@media screen and (max-width: 768px) {
@@ -138,6 +139,7 @@ const SideBar = ({children}) => {
 	`;
 
 	const Topbar = styled.div`
+		position: fixed;
 		width: 100%;
 		height: 70px;
 		background-color: #fff;
@@ -178,6 +180,52 @@ const SideBar = ({children}) => {
 
 	return (
 		<>
+			<Sidebar
+				animate={{
+					width: isOpen ? "300px" : "40px",
+					transition: {
+						duration: 0.1,
+						type: "spring",
+						damping: 10,
+					},
+				}}
+			>
+				<TopSection>
+					<AnimatePresence>
+						{isOpen && (
+							<Logo variants={showAnimation} initial="hidden" animate="show" exit="hidden">
+								<FaHome />
+								<Dash>Dashboard</Dash>
+							</Logo>
+						)}
+					</AnimatePresence>
+
+					<Bars>
+						<FaBars onClick={toggle} />
+					</Bars>
+				</TopSection>
+
+				<Routes>
+					{routes.map((route, index) => {
+						if (route.subRoutes) {
+							return <SidebarMenu setIsOpen={setIsOpen} route={route} showAnimation={showAnimation} isOpen={isOpen} />;
+						}
+
+						return (
+							<NavLink to={route.path} key={index} className="link" activeClassName="active">
+								<Icon>{route.icon}</Icon>
+								<AnimatePresence>
+									{isOpen && (
+										<LinkText variants={showAnimation} initial="hidden" animate="show" exit="hidden">
+											{route.name}
+										</LinkText>
+									)}
+								</AnimatePresence>
+							</NavLink>
+						);
+					})}
+				</Routes>
+			</Sidebar>
 			<Topbar>
 				<TopbarWrapper>
 					<TopLeft>
@@ -190,52 +238,6 @@ const SideBar = ({children}) => {
 				</TopbarWrapper>
 			</Topbar>
 			<MainContainer>
-				<Sidebar
-					animate={{
-						width: isOpen ? "300px" : "40px",
-						transition: {
-							duration: 0.1,
-							type: "spring",
-							damping: 10,
-						},
-					}}
-				>
-					<TopSection>
-						<AnimatePresence>
-							{isOpen && (
-								<Logo variants={showAnimation} initial="hidden" animate="show" exit="hidden">
-									<FaHome />
-									<Dash>Dashboard</Dash>
-								</Logo>
-							)}
-						</AnimatePresence>
-
-						<Bars>
-							<FaBars onClick={toggle} />
-						</Bars>
-					</TopSection>
-
-					<Routes>
-						{routes.map((route, index) => {
-							if (route.subRoutes) {
-								return <SidebarMenu setIsOpen={setIsOpen} route={route} showAnimation={showAnimation} isOpen={isOpen} />;
-							}
-
-							return (
-								<NavLink to={route.path} key={index} className="link" activeClassName="active">
-									<Icon>{route.icon}</Icon>
-									<AnimatePresence>
-										{isOpen && (
-											<LinkText variants={showAnimation} initial="hidden" animate="show" exit="hidden">
-												{route.name}
-											</LinkText>
-										)}
-									</AnimatePresence>
-								</NavLink>
-							);
-						})}
-					</Routes>
-				</Sidebar>
 				<Main>
 					<Outlet />
 				</Main>

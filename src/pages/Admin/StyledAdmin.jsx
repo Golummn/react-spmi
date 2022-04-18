@@ -1,5 +1,17 @@
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 
+export const StyledLink = styled(Link)`
+	text-decoration: none;
+	color: #f1f1f1;
+	&:focus,
+	&:hover,
+	&:visited,
+	&:link,
+	&:active {
+		text-decoration: none;
+	}
+`;
 export const Container = styled.div`
 	max-height: 95vh;
 	width: 100%;
@@ -75,4 +87,23 @@ export const Tambah = styled.button`
 export const WrapperTable = styled.div`
 	width: 100%;
 	overflow-x: auto;
+`;
+
+export const Input = styled.input`
+	padding: 0.8em;
+	width: 100%;
+	font-size: 0.9em;
+	background-color: #fafafa;
+	border: 1px solid #c5c5c5;
+	border-radius: 5px;
+	&:focus {
+		outline: none !important;
+		border: 1px solid #009457;
+		box-shadow: 0 0 10px #719ece;
+	}
+`;
+export const Label = styled.label`
+	display: inline-block;
+	font-size: 1rem;
+	margin-top: 0.5rem;
 `;

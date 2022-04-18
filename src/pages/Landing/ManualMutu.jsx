@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import {Table} from "./StyledTable";
+import Navbar from "./Navbar";
+import Hero from "./Hero";
+import Footer from "./Footer";
 
 const Title = styled.h2`
 	width: 80%;
@@ -12,6 +15,8 @@ const Title = styled.h2`
 const TableManualMutu = () => {
 	return (
 		<>
+			<Navbar />
+			<Hero />
 			<Title>Dokumen Manual Mutu</Title>
 			<Table>
 				<thead>
@@ -37,6 +42,7 @@ const TableManualMutu = () => {
 					</tr>
 				</tbody>
 			</Table>
+			<Footer />
 		</>
 	);
 };
